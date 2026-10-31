@@ -1,8 +1,23 @@
 # Node SSO Setup — Authorization API
 
+![Microsoft Entra ID](https://img.shields.io/badge/Microsoft_Entra_ID-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![OpenID Connect](https://img.shields.io/badge/OpenID_Connect-F78C40?style=for-the-badge&logo=openid&logoColor=white)
+![OAuth 2.0 + PKCE](https://img.shields.io/badge/OAuth_2.0_%2B_PKCE-EB5424?style=for-the-badge&logo=auth0&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+
 Express API that validates **Microsoft Entra ID** access tokens and resolves
 **Azure AD group membership into application roles** using a PostgreSQL database.
 It is the backend of a three-repository SSO reference system.
+
+<p align="center">
+  <img src="docs/auth-flow.svg" alt="Animated auth flow: React SPA to Microsoft Entra ID to Node API to PostgreSQL" width="100%"/>
+</p>
+
+> The diagram above is an animated SVG (a JWT travels SPA → Entra ID → API → DB).
+> It animates on GitHub and in the VS Code Markdown preview.
 
 ## Part of a 3-repository system
 
