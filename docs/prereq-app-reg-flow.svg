@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" width="980" height="360" role="img" aria-label="Animated Microsoft Entra app registration and scope wiring flow">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16a34a"/>
+      <stop offset="1" stop-color="#15803d"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="360" rx="16" fill="url(#bg)"/>
+  <text x="28" y="34" fill="#e2e8f0" font-size="20" font-family="Segoe UI, Arial" font-weight="700">Entra setup order: API app -> scope -> SPA permission -> consent</text>
+
+  <rect x="36" y="88" width="260" height="188" rx="14" fill="url(#card1)"/>
+  <text x="56" y="118" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial" font-weight="700">1) Create API app</text>
+  <text x="56" y="146" fill="#dbeafe" font-size="13" font-family="Segoe UI, Arial">Name: sso-setup-api-dev</text>
+  <text x="56" y="166" fill="#dbeafe" font-size="13" font-family="Segoe UI, Arial">Expose API: access_as_user</text>
+  <text x="56" y="186" fill="#dbeafe" font-size="13" font-family="Segoe UI, Arial">Application ID URI set</text>
+  <text x="56" y="206" fill="#dbeafe" font-size="13" font-family="Segoe UI, Arial">requestedAccessTokenVersion = 2</text>
+
+  <rect x="360" y="88" width="260" height="188" rx="14" fill="url(#card2)"/>
+  <text x="380" y="118" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial" font-weight="700">2) Create SPA app</text>
+  <text x="380" y="146" fill="#e0f2fe" font-size="13" font-family="Segoe UI, Arial">Name: sso-setup-spa-dev</text>
+  <text x="380" y="166" fill="#e0f2fe" font-size="13" font-family="Segoe UI, Arial">Platform: SPA</text>
+  <text x="380" y="186" fill="#e0f2fe" font-size="13" font-family="Segoe UI, Arial">Redirect: localhost:5173</text>
+  <text x="380" y="206" fill="#e0f2fe" font-size="13" font-family="Segoe UI, Arial">Add delegated access_as_user</text>
+  <text x="380" y="226" fill="#e0f2fe" font-size="13" font-family="Segoe UI, Arial">Grant admin consent</text>
+
+  <rect x="684" y="88" width="260" height="188" rx="14" fill="url(#card3)"/>
+  <text x="704" y="118" fill="#ffffff" font-size="16" font-family="Segoe UI, Arial" font-weight="700">3) Runtime result</text>
+  <text x="704" y="146" fill="#dcfce7" font-size="13" font-family="Segoe UI, Arial">SPA requests API scope</text>
+  <text x="704" y="166" fill="#dcfce7" font-size="13" font-family="Segoe UI, Arial">Entra issues v2 access token</text>
+  <text x="704" y="186" fill="#dcfce7" font-size="13" font-family="Segoe UI, Arial">aud = api://... , ver = 2.0</text>
+  <text x="704" y="206" fill="#dcfce7" font-size="13" font-family="Segoe UI, Arial">API validates token + groups</text>
+
+  <path d="M296 182 L360 182" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+  <path d="M620 182 L684 182" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+
+  <circle r="8" fill="#fbbf24">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M300 182 L680 182"/>
+  </circle>
+
+  <text x="28" y="322" fill="#94a3b8" font-size="12" font-family="Segoe UI, Arial">Tip: create API app first so the SPA can discover and request its scope cleanly.</text>
+</svg>

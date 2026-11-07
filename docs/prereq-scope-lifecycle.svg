@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 320" width="980" height="320" role="img" aria-label="Animated OAuth scope lifecycle from consent to API authorization">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1221"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="320" rx="16" fill="url(#bg2)"/>
+  <text x="24" y="34" fill="#e2e8f0" font-size="20" font-family="Segoe UI, Arial" font-weight="700">Scope lifecycle: definition -> consent -> token -> API authorization</text>
+
+  <g font-family="Segoe UI, Arial" font-size="13">
+    <rect x="30" y="84" width="200" height="150" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="46" y="112" fill="#bae6fd" font-weight="700">Define scope</text>
+    <text x="46" y="136" fill="#cbd5e1">API app: access_as_user</text>
+    <text x="46" y="156" fill="#cbd5e1">Expose an API</text>
+
+    <rect x="270" y="84" width="200" height="150" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="286" y="112" fill="#fde68a" font-weight="700">Grant consent</text>
+    <text x="286" y="136" fill="#cbd5e1">SPA delegated permission</text>
+    <text x="286" y="156" fill="#cbd5e1">Admin consent approved</text>
+
+    <rect x="510" y="84" width="200" height="150" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="526" y="112" fill="#86efac" font-weight="700">Token issuance</text>
+    <text x="526" y="136" fill="#cbd5e1">scp: access_as_user</text>
+    <text x="526" y="156" fill="#cbd5e1">aud: api://...</text>
+    <text x="526" y="176" fill="#cbd5e1">ver: 2.0, iss: /v2.0</text>
+
+    <rect x="750" y="84" width="200" height="150" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="766" y="112" fill="#fca5a5" font-weight="700">API checks</text>
+    <text x="766" y="136" fill="#cbd5e1">Signature + issuer + aud</text>
+    <text x="766" y="156" fill="#cbd5e1">Resolve groups -> roles</text>
+  </g>
+
+  <path d="M230 160 L270 160" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+  <path d="M470 160 L510 160" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+  <path d="M710 160 L750 160" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+
+  <circle r="7" fill="#22d3ee">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M230 160 L750 160"/>
+  </circle>
+
+  <text x="24" y="286" fill="#94a3b8" font-size="12" font-family="Segoe UI, Arial">If scope, consent, or token version is wrong, API authorization fails even when login succeeds.</text>
+</svg>
