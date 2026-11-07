@@ -19,6 +19,9 @@ It is the backend of a three-repository SSO reference system.
 > The diagram above is an animated SVG (a JWT travels SPA → Entra ID → API → DB).
 > It animates on GitHub and in the VS Code Markdown preview.
 
+> Full cloud setup checklist (app registrations, scopes, consent, groups):
+> [PREREQUISITES.md](PREREQUISITES.md)
+
 ## Part of a 3-repository system
 
 | Layer | Repository | Description |
