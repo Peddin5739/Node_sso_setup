@@ -49,6 +49,53 @@ It is the backend of a three-repository SSO reference system.
 
 ---
 
+## Cloud prerequisites (quick in README)
+
+For full details with animated setup diagrams, see:
+[PREREQUISITES.md](PREREQUISITES.md)
+
+### Required Entra app registrations
+
+1. API app (resource server) first
+   - Name: `sso-setup-api-dev`
+   - App ID URI: `api://<api-client-id>`
+   - Expose delegated scope: `access_as_user`
+   - Set token version to v2: `requestedAccessTokenVersion = 2`
+   - Enable access-token groups claim (Security groups -> Group ID)
+2. SPA app second
+   - Name: `sso-setup-spa-dev`
+   - Platform: Single-page application
+   - Redirect URI: `http://localhost:5173`
+   - Add delegated API permission to API app scope `access_as_user`
+   - Grant admin consent
+
+### Scope + consent checklist
+
+- Scope exists on API app: `access_as_user`
+- SPA requests `api://<api-client-id>/access_as_user`
+- Admin consent granted in tenant
+- Access token claims after login should show:
+  - `ver = 2.0`
+  - `aud = api://<api-client-id>`
+  - `iss = https://login.microsoftonline.com/<tenant-id>/v2.0`
+  - `groups = [...]`
+
+### AD group requirements for role management
+
+- Create security groups:
+  - `SSO_SETUP_ADMIN` -> maps to role `admin`
+  - `SSO_SETUP_USER` -> maps to role `user`
+- Map group Object IDs in DB table `authz.group_role_mappings`
+- Optional first-login bootstrap in `.env`:
+  - `BOOTSTRAP_ADMIN_GROUP_IDS=<admin-group-object-id>`
+
+### Animated cloud setup diagrams
+
+- App registration flow: [docs/prereq-app-reg-flow.svg](docs/prereq-app-reg-flow.svg)
+- Scope lifecycle: [docs/prereq-scope-lifecycle.svg](docs/prereq-scope-lifecycle.svg)
+
+---
+
 ## Architecture
 
 ```mermaid
